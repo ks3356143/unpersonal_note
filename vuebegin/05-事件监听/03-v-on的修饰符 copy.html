@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        <h2>hello vue</h2>  
+    </title>
+
+</head>
+<body>
+    <!--.stop修饰符阻止其他方法调用-->
+    <div id="app">
+        <div @click="divclick">
+            <button @click.stop="btnclick">这是一个按钮</button>
+    </div>
+    <!--.prevent阻止默认事件-->
+    <form action="/index"> 
+            <input type="submit" value="提交" @click.prevent="submitclick"/>
+    </form>
+    <!--监听键盘的键帽的点击keyup,keydown-->
+    <br>
+    <input type="text" @keyup.enter="keyup">
+    <!--.once的使用-->
+    <br>
+    <button @click.once="btnclick111">按钮点击监听，如果使用了once只监听一次</button>
+    </div>
+    <br>
+
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'你好，vue',
+                count:0
+            },
+            methods:{
+                btnclick(){
+                    console.log("点击了btn");
+                },
+                divclick(){
+                    console.log("点击了div");
+                },
+                submitclick(){
+                    console.log("我们自己的提交");
+                },
+                keyup(){
+                    alert("只有点击回车才会监听");
+                },
+                btnclick111(){
+                    alert("用来.once修饰符，只监听一次点击")
+                }
+
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        hello vue
+    </title>
+    <style>
+        .active{
+            color: rgb(245, 14, 14);
+        }
+    </style>
+<!--作业需求：点击列表中的哪一项，那么该项变成红色，其他变成普通颜色-->
+</head>
+<body>
+    <div id="app">
+        <h2 :style="[baseStyle,basebackcolor]">{{message}}</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app', 
+            data:{
+                message:"你好，vue",
+                baseStyle:{color:'black'},
+                basebackcolor:{backgroundColor:'red'}
+            },
+            methods:{
+
+                }
+        })
+
+    </script>
+</body>
+</html>

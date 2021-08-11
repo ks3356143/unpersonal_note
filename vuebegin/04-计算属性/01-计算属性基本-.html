@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        hello vue
+    </title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{firstname + ' ' + lastname}}</h2>
+        <h2>{{getfullname()}}</h2>
+        <h2>{{fullname}}</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app', 
+            data:{
+                firstname:'Lebron',
+                lastname:'James'
+            },
+            methods:{
+                    getfullname:function(){
+                        return this.firstname + " " + this.lastname;
+                    }
+                },
+            //计算属性，定义函数，用于计算属性，本质就是一个属性所以DOM直接用这个属性
+            computed:{
+                fullname:function(){
+                    return this.firstname + " " + this.lastname;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

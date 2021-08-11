@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        <h2>hello vue</h2>  
+    </title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak> <!--注意v-cloak-->
+        <h2>{{message}}</h2>
+        <h2 v-pre>{{message}}</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        //在vue解析中，在dom中有v-cloak
+        //在vue解析后，就dom没有v-cloak 
+        const app = new Vue({
+        el:'#app', 
+        data:{
+            message:'你好!!!',
+            URL:'<a href="http://www.baidu.com">百度一下</a>'
+            },
+        methods:{
+            
+            }
+        })
+
+    </script>
+</body>
+</html>

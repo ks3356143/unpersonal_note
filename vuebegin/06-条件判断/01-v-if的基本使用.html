@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        <h2>hello vue</h2>  
+    </title>
+
+</head>
+<body>
+    <div id="app">
+        <h2 v-if="ok">{{message}}</h2>
+        <button @click="display">点击显示信息</button>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:"显示不显示全看v-if",
+                ok:false
+            },
+            methods:{
+                display(){
+                    this.ok = !this.ok
+                }
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

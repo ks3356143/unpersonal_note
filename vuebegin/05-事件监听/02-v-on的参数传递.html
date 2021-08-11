@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        <h2>hello vue</h2>  
+    </title>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{count}}</h1>
+        <button @click="count++">+</button>
+        <button @click="count--">-</button>
+        <br>
+        <button @click="btn1click">按钮1</button>
+        <br>
+        <button @click="btn2click(123)">按钮2</button>
+        <br>
+        <button @click="btn3click">按钮3</button>
+        <br>
+        <button @click="btn4click(123,$event)">按钮4</button>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'你好，vue',
+                count:0
+            },
+            methods:{
+                btn1click(){
+                    alert("点击了按钮1")
+                },
+                btn2click(value){
+                    alert(value)
+                },
+                btn3click(event){
+                    alert(event) //打印了EventMouse对象,因为前面没有传入传输，而方法中有value
+                },
+                btn4click(value,event){
+                    alert(value);
+                    alert(event) 
+                },
+            }
+        })
+
+    </script>
+</body>
+</html>

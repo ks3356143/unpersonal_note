@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        hello vue
+    </title>
+    <style>
+        .active{
+            color: rgb(245, 14, 14);
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <h2 v-bind:class="[active,line]">{{message}}</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        //做了一层代理的
+        const app = new Vue({
+            el:'#app', 
+            data:{
+                message:'OK,是否变红',
+                active:'active',
+                isactive:true,
+                isline:true
+
+            },
+            methods:{
+                    func1:function(){
+                        this.isactive = !this.isactive
+                    },
+                    getClasses:function(){
+                        return {active:this.isactive,line:this.isline}
+                    }
+                }
+
+        })
+
+    </script>
+</body>
+</html>

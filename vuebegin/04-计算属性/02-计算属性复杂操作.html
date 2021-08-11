@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        hello vue
+    </title>
+</head>
+<body>
+    <div id="app">
+        <h2>总价格:{{totalprice}}</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app', 
+            data:{
+                books:[
+                    {id:110,name:'Unix编程艺术',price:119},
+                    {id:111,name:'代码大全',price:123},
+                    {id:112,name:'深入理解计算机原理',price:65},
+                    {id:113,name:'现代操作系统',price:32}
+                ]
+            },
+            methods:{
+
+                },
+            //计算属性，定义函数，用于计算属性，本质就是一个属性所以DOM直接用这个属性
+            computed:{
+                totalprice:function(){
+                    let result = 0;
+                    for(let i=0 ; i<this.books.length ; i++){
+                        result = result + this.books[i].price;
+                    }
+                    return result;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

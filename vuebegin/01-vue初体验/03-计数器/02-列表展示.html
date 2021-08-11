@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        <h2>hello vue</h2>  
+    </title>
+
+</head>
+<body>
+    <div id="app">
+        <h2>当前计数:{{counter}}</h2>
+        <!-- <button v-on:click='counter++'>+</button>
+        <button v-on:click='counter--'>-</button>  -->
+        <button v-on:click="add">+</button>
+        <button @click="sub">-</button>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        //做了一层代理的
+        const app = new Vue({
+            el:'#app', 
+            data:{
+                counter:0
+            },
+            methods:{
+                add:function(){
+                    console.log("add被执行");
+                    this.counter++;
+                },
+                sub:function(){
+                    console.log("sub被执行");
+                    this.counter--;
+                }
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

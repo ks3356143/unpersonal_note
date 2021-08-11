@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        <h2>hello vue</h2>  
+    </title>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <h2>{{name}}</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app', //我用vue来管理这个id为app的div
+            data:{
+                message:'你好，vue',
+                name:'你是猪'
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

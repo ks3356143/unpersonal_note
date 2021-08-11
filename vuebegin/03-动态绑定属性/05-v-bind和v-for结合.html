@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color:red;
+    }
+ 
+  </style>
+</head>
+<body>
+<!--把第一条数据展现成红色，接下去点击谁，谁就变成红色-->
+ 
+<div id="app">
+ 
+  <ul>
+    <li v-for="(m,index) in movies" :class="{active:currentIndex === index}"   @click="liClick(index)">{{index}}·{{m}}</li>
+  </ul>
+ 
+</div>
+<script  src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      movies:['海王','海尔兄弟','火影忍者','进击的巨人'],
+      currentIndex:0
+    },
+    methods:{
+      liClick(index) {
+        console.log(12);
+        this.currentIndex=index;
+      }
+    }
+  })
+</script>
+ 
+</body>

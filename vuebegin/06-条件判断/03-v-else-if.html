@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>
+        vue基础学习
+    </title>
+
+</head>
+<body>
+    <div id="app">
+
+        <h2 v-if="isShow">{{message}}</h2>
+        <h2 v-else>当isShow为true时候，显示我</h2>
+        <button @click="display">点击显示信息</button>
+        <br>
+        <h2 v-if="score===100">满分！</h2>
+        <h2 v-else-if="score>=80">优秀</h2>
+        <h2 v-else-if="score>=60">良好</h2>
+        <h2 v-else-if="score>=40">一般</h2>
+        <h2 v-else>差劲</h2>
+    </div>
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({//一般用标签判断非常麻烦
+            el:'#app',
+            data:{
+                message:"显示不显示全看v-if",
+                isShow:false,
+                score:99
+            },
+            methods:{
+                display(){
+                    this.isShow = !this.isShow
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
