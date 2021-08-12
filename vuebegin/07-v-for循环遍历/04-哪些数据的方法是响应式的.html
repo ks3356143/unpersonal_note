@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <h2>{{message}}</h2>
+        <ul>
+            <!-- 注意key容易重复 -->
+            <li v-for="item in letters" :key="item">{{item}}</li>
+
+        </ul>
+
+        <button @click="btnclick">
+            按钮
+        </button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'你好VUE',
+                letters:['A','B','C','D','F','E']
+                },
+            methods:{
+                btnclick(){
+                    //push方法增加一个元素
+                    //this.letters.push('AAA')
+                    //有些不能响应式，比如通过索引修改数组中的元素
+                    // this.letters[0] = "bbbbb"
+                    //this.letters.pop() 响应式，删除数组最后个元素
+                    //this.letters.shift()  响应式，删除数组的第一个
+                    //this.letters.unshift('AAA') 响应式在最前面添加“AAA”
+                    //this.letters.splice(1,1,"AAA")   这个splice函数可以删除、插入、替换元素
+                    this.letters.splice(1,2,"AAA","BBB") //如果2和后面元素个数一样，就达到替换作用
+                    this.letters.sort() //sort（）里面可以传函数的
+                    this.letters.reverse() //这个函数作用是数组翻转
+                    Vue.set(this.letters,0,"CCCC") //修改对象为this.letters，修改序号为[0]，修改为“CCCC”
+                }
+            }
+            
+        })
+
+    //可变参数关键字...
+    function sum(num1,num2){
+        return num1+num2
+    }
+
+    function sum(num1,num2,num3){
+        return num1+num2+num3
+    }
+    //那么写10个怎么样
+    //跟python的args*一样，但python传入是元组，而js是数组
+    function sum(...num){
+
+    }
+    </script>
+</body>
+</html>

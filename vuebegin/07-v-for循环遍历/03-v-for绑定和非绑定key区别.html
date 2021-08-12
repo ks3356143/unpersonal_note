@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <h2>{{message}}</h2>
+        <ul>
+            <!-- 在控制台输入app.letters.splice(1,0,"FFF")表示在第【1】个元素后插入“FFF”，中间位置是删除个数 -->
+            <li v-for="items in letters" :key="items">{{items}}</li>
+            <!-- 注意key一定要一一对应不然效率非常低 -->
+        </ul>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'你好VUE',
+                letters:['A','B','C','D','F','E']
+                }
+            
+        })
+
+    </script>
+</body>
+</html>

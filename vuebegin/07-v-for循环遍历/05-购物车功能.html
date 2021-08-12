@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        
+    </div>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+
+                },
+            methods:{
+
+                
+            }
+            
+        })
+
+    //可变参数关键字...
+    function sum(num1,num2){
+        return num1+num2
+    }
+
+    function sum(num1,num2,num3){
+        return num1+num2+num3
+    }
+    //那么写10个怎么样
+    //跟python的args*一样，但python传入是元组，而js是数组
+    function sum(...num){
+
+    }
+    </script>
+</body>
+</html>
