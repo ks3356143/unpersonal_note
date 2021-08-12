@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <h2 v-show="isShow">{{message}}</h2> 
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:"你好，vue！",
+                isShow:false, //注意指令在v-show和v-if都输入的是boolean类型
+            }
+        })
+
+    </script>
+</body>
+</html>

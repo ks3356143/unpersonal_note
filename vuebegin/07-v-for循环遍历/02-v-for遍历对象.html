@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id = 'app'>
+        <h2 v-show="isShow">{{message}}</h2> 
+        <!-- 在遍历过程中没有使用下标志 -->
+        <ul>
+            <li v-for="item in names">{{item}}</li>
+        </ul>
+        <!-- 加上下标值 -->
+        <ul>
+            <li v-for="item,index in names">{{index+'.'+item}}</li>
+        </ul>
+        <!-- 遍历对象中属性,v-for获取的是属性的值 -->
+        <ul>
+            <li v-for="item,key in info">{{key}}: {{item}}</li>
+        </ul>
+        <!-- 获取key、value、index -->
+        <ul>
+            <li v-for="item,key,index in info">{{index}}.{{key}}: {{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:"你好，vue！",
+                isShow:true, //注意指令在v-show和v-if都输入的是boolean类型
+                names:['kobe','james','curry'],
+                info:{
+                    age:18,
+                    name:"why",
+                    height:178
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
