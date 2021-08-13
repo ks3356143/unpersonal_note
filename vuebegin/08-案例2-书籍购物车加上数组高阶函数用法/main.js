@@ -61,14 +61,34 @@ const app = new Vue({
     },
     computed:{
         totalPrice(){//计算属性需要return
-            let totalPrice = 0;
-            for(let i = 0 ; i < this.books.length; i++){
-                totalPrice += this.books[i].price * this.books[i].count;
-            }
-            return totalPrice
+            // let totalPrice = 0;
+            // for(let i = 0 ; i < this.books.length; i++){
+            //     totalPrice += this.books[i].price * this.books[i].count;
+            // }
+            // return totalPrice
             //另外循环
             //for(let i in/of this.books)
             //reduce
+            let totalp = 0
+            for(let i of this.books){
+                totalp += i.price * i.count
+            }
+            return totalp
         }
     },
 })
+
+//高阶函数filter，主要针对数组
+const nums = [100,52,98,444,111,202,149]
+
+let newnums = nums.filter(function(n){
+    return n<=100
+})
+
+console.log(newnums)
+
+let new2 = nums.map(function(n){
+    return 100
+})
+
+console.log(new2)
