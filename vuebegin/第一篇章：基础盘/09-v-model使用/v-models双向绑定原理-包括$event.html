@@ -4,21 +4,14 @@
     <title>进入VUE的大门</title>
     <meta charset="UTF-8">
     <title>Hello Vue</title>
-    <link rel='stylesheet' href="style.css">
 </head>
 <body>
     <div id='app'>
+        <input type="text" :value="message" @input="setmessage">
+        <input type="text" :value="message" @input="message = $event.target.value">
+        <input type="text" :value="message" @input="setmessage(event)">
        {{message}}
     </div>
-
-
-
-
-
-
-
-
-
 
 <script src="../js/vue.js"></script>
 <script>
@@ -26,6 +19,11 @@ const app = new Vue({
     el:"#app",
     data:{
         message:"你好，vue"
+    },
+    methods:{
+        setmessage(event){
+            this.message = event.target.value
+        }
     },
 
 })

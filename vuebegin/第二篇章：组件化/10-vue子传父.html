@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!-- 父亲组件模板 -->
+    <div id='app'>
+        <!-- 这里传item报错，不写括号即可 -->
+        <cpn @itemclick="getChilren"></cpn>
+    </div>
+<!-- 子组件模板如下 -->
+<template id="cpn2">
+    <div>
+        <button v-for="item in categories" @click="btnclick(item)">{{item.name}}</button>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+//子组件
+const cpn = {
+    template:"#cpn2",
+    data(){
+        return {
+            categories:[
+            {id:"aa",name:"手机数码"},
+            {id:"bb",name:"热门推荐"},
+            {id:"cc",name:"组装机器"},
+            {id:"dd",name:"开始不错"},
+            ]
+        }
+    },
+    methods: {
+        btnclick(item){
+            //发射事件
+            this.$emit("itemclick",item)
+        }
+    },
+}
+
+const app = new Vue({
+    el:"#app",
+    data:{
+         movies:['海王',"海贼王",'海尔兄弟'],
+         message:"你好呀Vue",
+         info:{
+             name:"chen",
+             age:30,
+             height:1.88
+         }
+    },
+    components:{
+        cpn
+    },
+    methods: {
+        getChilren(item){
+            console.log("OK!")
+            console.log(item)
+        }
+    },
+})
+
+</script>
+</body>
+</html>

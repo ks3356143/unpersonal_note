@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id='app'>
+        <cpn :cmovies="movies" :cmessage="message"></cpn>
+    </div>
+<!-- 组件模板如下 -->
+<template id="cpn2">
+    <div>
+        <ul>
+            <li v-for="item in cmovies">{{item}}</li>
+        </ul>
+        <p>{{cmessage}}</p>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    
+const cpn = {
+    template:"#cpn2",
+    //props:["cmovies","cmessage"],
+    props:{
+        // cmovies:Array,
+        cmessage:{
+            type:String,
+            default:"你不好呀Vue",
+            required:true
+        },
+        cmovies:{
+            type:Array, //类型是对象或者数组时候，默认值必须是一个函数
+            default(){
+                return []
+            },
+            required:false,
+        }
+
+    }
+}
+
+const app = new Vue({
+    el:"#app",
+    data:{
+         movies:['海王',"海贼王",'海尔兄弟'],
+         message:"你好呀Vue"
+    },
+    components:{
+        cpn
+    }
+})
+
+</script>
+</body>
+</html>

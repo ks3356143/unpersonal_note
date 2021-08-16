@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id='app'>
+        <cpn1></cpn1>
+    </div>
+    
+
+<script src="../js/vue.js"></script>
+<script>
+    //1.创建组件构造器对象,这里有个新的ES6语法tab键上面的按键，可以换行哦！！！！``
+    const cpnC1 = Vue.extend({
+        template:`
+            <div>
+                <h2>我儿子</h2>
+                <p>我是内容</p>
+                <p>我是内容2</p>   
+            </div>
+        `
+    })
+
+    const cpnC2 = Vue.extend({
+        template:`
+            <div>
+                <h2>我是父亲</h2>
+                <p>我是父亲内容</p>
+                <myson></myson>  
+            </div>
+        `,
+        components:{
+            myson:cpnC1,
+        }
+    })
+    //2.注册组件，传2个参数第一个组件标签名，另一个是
+    
+const app = new Vue({
+    el:"#app",
+    data:{
+        message:"",
+    },
+    components:{
+        cpn1:cpnC2,
+    }
+})
+
+</script>
+</body>
+</html>
