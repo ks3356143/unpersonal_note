@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!-- 父亲组件模板 -->
+    <div id='app'>
+        <!-- 这里传item报错，不写括号即可 -->
+        <cpn :number1="num1" :number2="num2" @valuechanged1="valuechange1" @valuechanged2="valuechange2"></cpn>
+    </div>
+<!-- 子组件模板如下 -->
+<template id="cpn2">
+    <div>
+        <h2>子组件：{{dnumber1}}</h2>
+        <!-- <input type="text" v-model="dnumber1"> -->
+        <input type="text" :value="dnumber1" @input="num1input">
+        <h2>子组件：{{dnumber2}}</h2>
+        <!-- <input type="text" v-model="dnumber2"> -->
+        <input type="text" :value="dnumber2" @input="num2input">
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+const app = new Vue({
+    el:"#app",
+    data:{
+         num1:1,
+         num2:0
+    },
+    methods: {
+        valuechange1(value){
+            this.num1 = parseInt(value)
+        },
+        valuechange2(value){
+            this.num2 = parseInt(value)
+        },
+    },
+    components:{
+        cpn:{
+            template:"#cpn2",
+            props:{
+                number1:Number,
+                number2:Number
+            },
+            data(){
+                return {
+                    dnumber1:this.number1,
+                    dnumber2:this.number2,
+                }
+            },
+            methods: {
+                num1input(event){
+                    this.dnumber1 = event.target.value
+                    this.$emit("valuechanged1",this.dnumber1)  //给父类发送事件
+                },
+                num2input(event){
+                    this.dnumber2 = event.target.value
+                    this.$emit("valuechanged2",this.dnumber2)  //给父类发送事件
+                }
+            },
+        }
+    },
+})
+
+</script>
+</body>
+</html>
