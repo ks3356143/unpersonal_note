@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id='app'>
+        <!-- lazy修饰符 -->
+        <input type="text" v-model.lazy="message">
+        <h2>您输入的信息为：{{message}}</h2>
+        <!-- number修饰符 -->
+        <input type="number" v-model.number="age">
+        <h2>{{age}}~~~{{typeof(age)}}</h2>
+
+        <input >
+    </div>
+    
+
+<script src="../js/vue.js"></script>
+<script>
+const app = new Vue({
+    el:"#app",
+    data:{
+        message:"",
+        age:"",
+
+    },
+
+})
+
+</script>
+</body>
+</html>

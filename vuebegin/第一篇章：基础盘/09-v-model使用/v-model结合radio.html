@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id='app'>
+        <!-- 还记得for是干嘛吗，点击label就专项对应空间 -->
+        <label for="">
+            <input type="radio" id="male" name="sex" value="男" v-model="sex">男
+        </label>
+        <label for=""> 
+            <input type="radio" id="female" name="sex" value="女" v-model="sex">女
+        </label>
+        <h2>您选中的性别是：{{sex}}</h2>
+    </div>
+    
+
+<script src="../js/vue.js"></script>
+<script>
+const app = new Vue({
+    el:"#app",
+    data:{
+        message:"你好，vue",
+        sex:'男'
+    },
+    methods:{
+        setmessage(event){
+            this.message = event.target.value
+        }
+    },
+
+})
+
+</script>
+</body>
+</html>

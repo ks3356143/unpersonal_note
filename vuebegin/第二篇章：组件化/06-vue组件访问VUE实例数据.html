@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id='app'>
+        <cpn2></cpn2>
+    </div>
+<!-- 组件模板如下 -->
+<template id="cpn2">
+    <div>
+        <h2>{{title}}</h2>
+        <p>全局组件内容</p>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    //1.创建组件构造器对象,这里有个新的ES6语法tab键上面的按键，可以换行哦！！！！``
+    //全局组件构造器,语法糖内部还是调用的extend
+    //2.注册组件，传2个参数第一个组件标签名，另一个是
+    Vue.component("cpn2",{
+        template:"#cpn2",
+        data(){
+            return{
+                title:"组件里面的数据"
+            }
+        }
+    })
+    
+const app = new Vue({
+    el:"#app",
+    data:{
+        message:"",
+    },
+    components:{
+
+    }
+})
+
+</script>
+</body>
+</html>
