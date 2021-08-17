@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!-- 父亲组件模板 -->
+    <div id='app'>
+        <cpn><button>按钮</button></cpn>
+        <cpn><span>hahaha</span></cpn>
+        <cpn></cpn>
+        <cpn><i>hehehe</i></cpn>
+    </div>
+<!-- 子组件模板如下 -->
+<template id="cpn">
+    <div>
+        <h2>我是子组件1</h2>
+        <!-- slot也可以有默认值 -->
+        <slot><button>默认按钮</button></slot>
+    </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+
+const app = new Vue({
+    el:"#app",
+    data:{
+        Message:"你好呀"
+    },
+    methods: {
+        btnclick(){
+            console.log("通过子组件打印父组件")//父亲访问儿子
+        },
+    },
+    components:{
+        cpn:{
+            template:"#cpn",
+            
+        }
+    },
+})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!-- 父亲组件模板 -->
+    <div id='app'>
+        <cpn></cpn>
+    </div>
+<!-- 子组件模板如下 -->
+<template id="cpn">
+    <div>
+        <chil></chil>
+    </div>
+</template>
+
+<template id="chil1">
+    <div>
+        <h2>我是子子组件</h2>
+        <button @click="btnclick">点击按钮</button>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+const app = new Vue({
+    el:"#app",
+    data:{
+        Message:"你好呀"
+    },
+    methods: {
+        btnclick(){
+            console.log("通过子组件打印父组件")//父亲访问儿子
+        },
+    },
+    components:{
+        cpn:{
+            template:"#cpn",
+            //访问父组件
+            methods: {
+                btnclick(){
+                    console.log("我是第二级子组件")
+                }
+            }, 
+            components:{
+                chil:{
+                    template:"#chil1",
+                    methods: {
+                        btnclick(){
+                            console.log("我是第三级子组件")
+                            console.log(this.$parent.$parent.Message)
+                            console.log(this.$root.Message)
+                        }
+                    },
+                }
+            }
+        }
+    },
+})
+
+</script>
+</body>
+</html>

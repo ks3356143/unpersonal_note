@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!-- 父亲组件模板 -->
+    <div id='app'>
+        <cpn></cpn>
+        <cpn></cpn>
+        <!-- aaa为属性名字如用$refs.aaa -->
+        <cpn ref="aaa"></cpn>
+        <button @click="btnclick">点击呈现</button>
+    </div>
+<!-- 子组件模板如下 -->
+<template id="cpn">
+    <div>
+        <h2>我是子组件</h2>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+const app = new Vue({
+    el:"#app",
+    data:{
+
+    },
+    methods: {
+        btnclick(){
+            console.log(this.$refs.aaa.name)//父亲访问儿子
+        },
+    },
+    components:{
+        cpn:{
+            template:"#cpn",
+            methods: {
+                showmassage(){
+                    console.log("showmessage!")
+                },
+            },
+            data(){
+                return{
+                    name:"我是子组件的名字属性"
+                }
+            }
+            
+        }
+    },
+})
+
+</script>
+</body>
+</html>

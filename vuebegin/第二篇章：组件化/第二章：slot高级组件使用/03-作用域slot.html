@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>进入VUE的大门</title>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<!-- 父亲组件模板 -->
+<div id='app'>
+    <cpn></cpn>
+    <cpn>
+        <!-- 作用域slot,下面slotdata引用slot对象-->
+        <div slot-scope="slotdata">
+                <span v-for="item in slotdata.data">{{item}}---</span>
+        </div>
+    </cpn>
+    <cpn>
+        <div slot-scope="slotdata">
+            <!-- Array.join("aa")遍历每个数组多个然后加上join -->
+            <span v-for="item in slotdata.data.join('**')">{{item}}</span>
+        </div>
+    </cpn>
+</div>
+<!-- 子组件模板如下 -->
+<template id="cpn">
+    <div>
+        <!-- 插槽如下 -->
+        <slot :data="language"> 
+            <ul>
+                <li v-for="item in language">{{item}}</li>
+            </ul>
+        </slot>
+    </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+
+const app = new Vue({
+    el:"#app",
+    data:{
+        Message:"你好呀",
+    },
+    methods: {
+        btnclickfu(){
+            console.log(111)//父亲访问儿子
+        },
+    },
+    components:{
+        cpn:{
+            template:"#cpn",
+            data(){
+                return{
+                    language:['go','python','c++','c','java']
+                }
+            }
+            
+        }
+    },
+})
+
+</script>
+</body>
+</html>
