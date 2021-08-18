@@ -11,7 +11,7 @@ export default {
     name:"App",
     data(){
     return {
-        message:"我不好！",
+        message:"我哈哈哈好！",
         name:"very ok"
         }
     },
@@ -24,13 +24,6 @@ export default {
 </script>
 
 <style>
-    .title {
-        color:greenyellow;
-        color:green;
-    }
-    .h2 {
-        color: hotpink;
-    }
     body{
         background: hotpink;
     }

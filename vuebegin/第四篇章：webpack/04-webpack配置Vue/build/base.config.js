@@ -9,7 +9,7 @@ module.exports = {
     mode: 'development',
     entry:'./src/main.js',
     output:{
-        path:path.resolve(__dirname,'dist'), //动态获取路径
+        path:path.resolve(__dirname,'../dist'), //动态获取路径
         // filename:"main.js"---因为使用了html-webpack-plugin插件
     },
     resolve: {

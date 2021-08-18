@@ -18,7 +18,6 @@ import Vue from 'vue'
 // import App from './vue/app'
 import App from './vue/App.vue'
 
-
 new Vue({
     el:"#app",
     template:'<App/>',
@@ -26,3 +25,4 @@ new Vue({
         App
     }
 })
+
