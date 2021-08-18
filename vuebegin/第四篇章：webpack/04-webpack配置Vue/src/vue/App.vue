@@ -31,4 +31,7 @@ export default {
     .h2 {
         color: hotpink;
     }
+    body{
+        background: hotpink;
+    }
 </style>

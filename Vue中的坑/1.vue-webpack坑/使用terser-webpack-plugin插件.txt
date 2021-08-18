@@ -1,0 +1,15 @@
+module.exports = {
+    mode: 'development',
+    entry:'./src/main.js',
+    output:{
+        path:path.resolve(__dirname,'dist'), //动态获取路径
+        // filename:"main.js"---因为使用了html-webpack-plugin插件
+    },
+    optimization:{
+        minimize:true,
+        minimizer:[new TerserPlugin({
+            test:/\.js$/,
+            exclude:/(node_modules|bowser_component)/,
+            parallel:true
+        })]
+    },

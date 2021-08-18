@@ -1,11 +1,23 @@
 const path = require('path')
 const {VueLoaderPlugin} = require('vue-loader')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+
 module.exports = {
     mode: 'development',
     entry:'./src/main.js',
     output:{
         path:path.resolve(__dirname,'dist'), //动态获取路径
-        filename:"main.js"
+        // filename:"main.js"---因为使用了html-webpack-plugin插件
+    },
+    optimization:{
+        minimize:true,
+        minimizer:[new TerserPlugin({
+            test:/\.js$/,
+            exclude:/(node_modules|bowser_component)/,
+            parallel:true
+        })]
     },
     resolve: {
         alias: {
@@ -13,13 +25,30 @@ module.exports = {
         }
     },
     plugins:[
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.BannerPlugin('最终版权归微小卫星所有'),
+        new HtmlWebpackPlugin({
+            title:"学习webpack！",
+            template:'index.html',
+            inject:'body',
+            minify:{ //压缩HTML文件
+                 removeComments:true,    //移除HTML中的注释
+                 collapseWhitespace:true    //删除空白符与换行符
+             }
+        }),
     ],
     module:{
         rules:[
             {
-                test:/\.css$/,
-                use:['style-loader','css-loader']
+                test:/\.vue$/,
+                use:['vue-loader']
+            },
+            {
+                test: /\.css$/,
+                use: [
+                  'vue-style-loader',
+                  'css-loader'
+                ]
             },
             // {
             //     test: /\.(jpg|png|gif)$/,
@@ -63,10 +92,6 @@ module.exports = {
                     {loader:'css-loader'},
                     {loader:'less-loader'}
                 ]
-            },
-            {
-                test:/\.vue$/,
-                use:['vue-loader']
             },
         ]
     }
