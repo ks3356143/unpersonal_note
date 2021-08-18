@@ -17,7 +17,7 @@ export default {
     },
     methods:{
         btnclick(){
-            alert("不会正确使用？")
+            alert("devserver正常使用？")
         }
     },
 }
