@@ -47,7 +47,15 @@ module.exports = {
                         presets:['@babel/preset-env']
                     }
                 }
-            }
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    {loader:'style-loader'},
+                    {loader:'css-loader'},
+                    {loader:'less-loader'}
+                ]
+            },
         ]
     }
 }
