@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数this使用</title>
+</head>
+<body>
+
+<script>
+
+//什么时候使用箭头函数,用一个函数作为另一个函数
+setTimeout(function(){
+    console.log(this);
+},1000)
+
+setTimeout(() => {
+    console.log(this);
+})
+
+//结论：箭头函数的this引用的就是最近作用域的this
+//答案：向外层作用域中，一层层查找this，知道有this定义为止
+const obj = {
+    aaa() {
+        setTimeout(function(){
+            console.log(this);  //window对象
+        },10),
+        setTimeout(()=>{
+            console.log(this); //输出obj对象
+        })
+    }
+}
+    
+</script>
+</body>
+</html>

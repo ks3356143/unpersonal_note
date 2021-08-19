@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Html模板</title>
+</head>
+<body>
+    
+
+<script>
+//箭头函数也是一种定义函数的方式
+//1.1 参数问题:放入2个参数
+const sum = (num1,num2) => {
+    return num1 + num2
+}
+
+//1.2 参数问题：放入1个参数
+const sum = num1 => {
+    return num1 + num2
+}
+
+//2.函数中的代码行数多行
+const test = () =>{
+    //打印hello world
+    console.log("helloword");
+    console.log("yes");
+}
+
+//2.1函数的代码行数1行
+const mul = (num1,num2) => num1 * num2 
+
+//我们开vue2的,那么传入b参数，由后面知道b是函数，那么返回给obj对象
+const obj = b => b(App)
+
+</script>
+
+</body>
+</html>
