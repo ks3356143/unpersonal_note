@@ -7,7 +7,10 @@
 
 <script>
 export default {
-    name:"home"
+    name:"home",
+    // created(){
+    //     document.title = "关于"
+    // },
 }
 </script>
 
