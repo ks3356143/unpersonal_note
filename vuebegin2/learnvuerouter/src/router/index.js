@@ -1,15 +1,30 @@
+import VueRouter from 'vue-router'
 import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+//第一步通过Vue.use（这是插件），来安装这个插件，而不是在webpack插入，因为是运行时
+Vue.use(VueRouter)
 
-Vue.use(Router)
+import Home from '../components/home'
+import about from '../components/about'
 
-export default new Router({
-  routes: [
+const routes = [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
-  ]
+        path:'',
+        redirect:Home
+    },
+    {
+        path:"/home",
+        component:Home
+    },
+    {
+        path:"/about",
+        component:about
+    },
+]
+
+const router = new VueRouter({
+    routes,
+    mode: 'history', //这是个类对象，需要小括号
+    linkActiveClass:"active"
 })
+
+export default router

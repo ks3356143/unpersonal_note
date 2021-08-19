@@ -1,23 +1,33 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <h2>我是APP组件</h2>
+    <!-- <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/about" tag="button">关于</router-link>
+    <router-view></router-view> -->
+    <button @click="homeclick">首页</button>
+    <button @click="aboutclick">关于</button>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    homeclick(){
+      console.log("点击了home");
+      this.$router.push("/home")
+    },
+    aboutclick(){
+      console.log("点击了about");
+      this.$router.push("/about")
+    }
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.active{
+  color: red;
 }
 </style>
