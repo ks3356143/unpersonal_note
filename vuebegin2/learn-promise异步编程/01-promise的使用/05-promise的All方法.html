@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // //请求一：
+    // $ajax({
+    //     url:'',
+    //     success:function(){
+    //         console.log("请求一完成的结果");
+    //     }
+    // })
+    // //请求二：
+    // $ajax({
+    //     url:'',
+    //     success:()=>{
+    //         console.log("请求二完成的结果");
+    //     }
+    // })
+    //如果我要同时监听请求一和二完成，怎么做？
+    Promise.all([
+        new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+               resolve('result1')
+           },2000)
+        }),
+        new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('result2')
+            },1000)
+        }),
+    ]).then(results=>{//这个then传入的results为数组，[0]为第一个结果，[1]为第二个结果
+        console.log(results);//也可以用results[0][1]
+    })
+
+</script>
+
+</body>
+</html>

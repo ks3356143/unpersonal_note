@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异步编程</title>
+</head>
+<body>
+<script>
+//使用setTimeout，等待1秒执行里面代码
+setTimeout(()=>{
+    console.log("~~~~~~~~~~~~！");
+},1000)
+//promise对异步操作进行封装，promise是一个类
+//对象传入一个函数，这个函数传入2个函数参数一个resolve()和reject()函数
+new Promise((resolve,reject)=>{
+    //成功时候调用resolve
+    setTimeout(()=>{
+        resolve('hello!')
+        },5000)
+    //失败时候调用reject
+    reject("error message")
+}).then((data) => {
+    console.log(data);
+    console.log(data);
+    console.log(data);
+    console.log(data);
+}).catch((err)=>{
+    console.log(err);
+})
+
+
+
+
+</script>
+</body>
+</html>

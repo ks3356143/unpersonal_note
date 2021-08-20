@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+setTimeout(()=>{
+        console.log("1.1.在promise外面")
+    },3000)
+
+setTimeout(()=>{
+    console.log("1.2.在promise外面2")
+},3000)
+
+new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("2.hello Vue")
+    },5000)
+}).then((ok)=>{  //注意这里面ok是变量是，上面resolve传过来的
+    console.log(ok);
+})
+
+new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("3.hello other")
+    },1000)
+}).then(okvalue=>{
+    console.log(okvalue); //2个promise类实例是异步执行的
+},err => {
+    err.log()
+})
+
+
+
+</script>
+</body>
+</html>

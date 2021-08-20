@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//Promise就是一个wrapper
+//网络请求：aaa ->自己处理（10行）
+//处理：aaa 拼接 111 ->下一步也自己处理（10行）
+//处理：aaa111 拼接 222 ->再处理10行
+new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("aaa")
+    },1000)
+}).then((result)=>{
+    console.log(result + '第一层10行处理代码');
+    return Promise.resolve(result + '111') //直接promise直接resolve
+}).then((result)=>{
+    console.log(result + '第二层10行处理代码');
+    return Promise.resolve(result + '222')
+}).then((result)=>{
+    console.log("最终处理结果：" + result);
+})
+
+//再简写
+new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("aaa")
+    },1000)
+}).then((result)=>{
+    console.log(result + '第一层10行处理代码');
+    return result + '111' //直接promise直接resolve
+}).then((result)=>{
+    console.log(result + '第二层10行处理代码');
+    return result + '222'
+}).then((result)=>{
+    console.log("最终处理结果：" + result);
+})
+
+
+</script>
+</body>
+</html>
