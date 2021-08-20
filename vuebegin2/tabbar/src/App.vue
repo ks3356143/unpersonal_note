@@ -2,56 +2,21 @@
   <!-- 所有item都展示这个文字图片 -->
   <div id="app">
     <router-view></router-view>
-    <tabbar>
-      <tabbarItem path="/home" activeColor="deeppink">
-        <img src="./assets/img/tabbar/home.svg" alt="" slot="item-icon" />
-        <img src="./assets/img/tabbar/home_active.svg" alt="" slot="item-icon-active" />
-        <div slot="item-text">首页</div>
-      </tabbarItem>
-      <tabbarItem path="/category" activeColor="orange">
-        <img src="./assets/img/tabbar/category.svg" alt="" slot="item-icon" />
-        <img
-          src="./assets/img/tabbar/category_active.svg"
-          alt=""
-          slot="item-icon-active"
-        />
-        <div slot="item-text">分类</div>
-      </tabbarItem>
-      <tabbarItem path="/shortcut" activeColor="blue">
-        <img src="./assets/img/tabbar/shortcut.svg" alt="" slot="item-icon" />
-        <img
-          src="./assets/img/tabbar/shortcut_active.svg"
-          alt=""
-          slot="item-icon-active"
-        />
-        <div slot="item-text">更多</div>
-      </tabbarItem>
-      <tabbarItem path="/profile">
-        <img src="./assets/img/tabbar/profile.svg" alt="" slot="item-icon" />
-        <img
-          src="./assets/img/tabbar/profile_active.svg"
-          alt=""
-          slot="item-icon-active"
-        />
-        <div slot="item-text">我的</div>
-      </tabbarItem>
-    </tabbar>
+    <maintabbar></maintabbar>
   </div>
 </template>
 
 <script>
-import tabbar from "./components/tabbar/tabbar.vue";
-import tabbarItem from "./components/tabbar/tabbarItem.vue";
+import maintabbar from "@/components/maintabbar.vue";
 
 export default {
   name: "App",
   components: {
-    tabbar,
-    tabbarItem,
+    maintabbar,
   },
 };
 </script>
 
 <style>
-@import "./assets/css/base.css";
+@import "assets/css/base.css";
 </style>
