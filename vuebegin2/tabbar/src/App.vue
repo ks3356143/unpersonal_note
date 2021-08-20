@@ -1,40 +1,57 @@
 <template>
+  <!-- 所有item都展示这个文字图片 -->
   <div id="app">
-    <div id="tab-bar">
-      <div class="tab-bar-item">首页</div>
-      <div class="tab-bar-item">分类</div>
-      <div class="tab-bar-item">购物车</div>
-      <div class="tab-bar-item">我的</div>
-    </div>
+    <router-view></router-view>
+    <tabbar>
+      <tabbarItem path="/home" activeColor="deeppink">
+        <img src="./assets/img/tabbar/home.svg" alt="" slot="item-icon" />
+        <img src="./assets/img/tabbar/home_active.svg" alt="" slot="item-icon-active" />
+        <div slot="item-text">首页</div>
+      </tabbarItem>
+      <tabbarItem path="/category" activeColor="orange">
+        <img src="./assets/img/tabbar/category.svg" alt="" slot="item-icon" />
+        <img
+          src="./assets/img/tabbar/category_active.svg"
+          alt=""
+          slot="item-icon-active"
+        />
+        <div slot="item-text">分类</div>
+      </tabbarItem>
+      <tabbarItem path="/shortcut" activeColor="blue">
+        <img src="./assets/img/tabbar/shortcut.svg" alt="" slot="item-icon" />
+        <img
+          src="./assets/img/tabbar/shortcut_active.svg"
+          alt=""
+          slot="item-icon-active"
+        />
+        <div slot="item-text">更多</div>
+      </tabbarItem>
+      <tabbarItem path="/profile">
+        <img src="./assets/img/tabbar/profile.svg" alt="" slot="item-icon" />
+        <img
+          src="./assets/img/tabbar/profile_active.svg"
+          alt=""
+          slot="item-icon-active"
+        />
+        <div slot="item-text">我的</div>
+      </tabbarItem>
+    </tabbar>
   </div>
 </template>
 
 <script>
+import tabbar from "./components/tabbar/tabbar.vue";
+import tabbarItem from "./components/tabbar/tabbarItem.vue";
+
 export default {
-  name: 'App',
-  component:{}
-}
+  name: "App",
+  components: {
+    tabbar,
+    tabbarItem,
+  },
+};
 </script>
 
 <style>
-@import './assets/css/base.css';
-
-#tab-bar {
-  display: flex;
-  background-color: #f6f6f6;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom:0;
-  box-shadow: 0px -1px 1px rgba(100,100,100,0.1);
-}
-
-.tab-bar-item {
-  flex:1; 
-  /* flex的均等分 */
-  text-align: center;
-  height: 49px;
-  /* 移动端开发一般49px */
-}
-
+@import "./assets/css/base.css";
 </style>
