@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <h2>~~~~~~~~~~~APP内容：modules中的内容~~~~~~~~~~~</h2>
+    <!-- 很奇怪用modules中内容 -->
+    <h2>{{ $store.state.b.name }}</h2>
+    <h2>{{ $store.getters.fullname }}</h2>
+    <button @click="updatename">修改名字</button>
     <h2>~~~~~~~~~~~~~App内容~~~~~~~~~~~</h2>
     <h2>计数为：{{ $store.state.counter }}</h2>
     <button @click="addition">+</button>
@@ -58,6 +63,9 @@ export default {
       this.$store.dispatch("aUpadteinfo", "我是携带信息").then((res) => {
         console.log(res);
       });
+    },
+    updatename() {
+      this.$store.commit("updatename", "我是李四");
     },
   },
   computed: {
