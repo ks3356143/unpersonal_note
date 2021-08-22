@@ -22,7 +22,9 @@ const moduleA = {
         fullname(state){
             return state.name + "11111"
         },
-        fullname2(state,getters)
+        fullname2(state,getters){
+            
+        }
      }
   }
 
