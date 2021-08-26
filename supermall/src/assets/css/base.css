@@ -1,0 +1,77 @@
+@import '~assets/css/normalize.css';
+/* css根类获取根元素，--large-font这是定义变量,使用变量var(--color-text) */
+:root {
+    /* 文字颜色 */
+    --color-text:#666;
+    /* 文字高亮颜色 */
+    --color-high-text:#ff5777;
+    /* 为了设置导航背景颜色 */
+    --color-tint:#ff8198;
+    /* 再设置个白色背景 */
+    --color-background:#fff;
+    /* 字体大小 */
+    --font-size:14px;
+    /* 行高 */
+    --line-height:1.5;
+    /* 以上变量用法直接使用var(--color-tint) */
+}
+
+/* 所有元素 */
+*,
+*::before,
+*::after {
+    /* 外边距 */
+    margin:0;
+    /* 内边距 */
+    padding:0;
+    /* 定义2个并排边框的框，就是2个框之间有框*/
+    box-sizing: border-box;
+}
+
+body{
+    /* 为<p>设置字体家族 */
+    font-family:"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",
+    "微软雅黑",Arial,sans-serif;
+    /* 禁止用户鼠标在页面上选中文字/图片等 */
+    user-select: none;
+    /* webkit是苹果浏览器,tab点击,highlight背景高亮,color颜色,颜色用数值调节 */
+    -webkt-tap-highlight-color:transparent;
+    background:var(--color-background);
+    color: var(--color-text);
+    /* rem vm/vh 用来适配所有分辨率*/
+    width:100vm;
+}
+
+a{
+    color:var(--color-text);
+    /* 设置横线位置，我们这里不要横线 */
+    text-decoration: none;
+}
+
+.clear-fix::after{
+    /* 图像的左侧和右侧均不允许出现浮动元素 */
+    clear:both;
+    /* content属性可以在a标签等后加入一个文字或者其他的 */
+    content:"";
+    /* block就换行了，inline就在行内 */
+    display: block;
+    width:0;
+    height:0;
+    visibility: hidden;
+}
+
+.clear-fix{
+    /* 设置或检索对象的缩放比例就是用户ctrl+滚轮 */
+    zoom:1
+}
+
+.left {
+    /* 图像向右浮动，就是图像在段落最左侧 */
+    float: left;
+}
+
+.ritght{
+    float: right;
+}
+
+
